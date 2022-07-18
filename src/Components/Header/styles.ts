@@ -17,7 +17,7 @@ export const GithubLogo = styled(FaGithub)`
 
 export const SearchForm = styled.form`
   padding-left: 16px;
-  width: 100%;
+  width: 350px;
 
   input {
     background: var(--search);
@@ -25,11 +25,6 @@ export const SearchForm = styled.form`
     border-radius: 6px;
     padding: 7px 12px;
     width: 100%;
-
-    &:focus {
-      width: 318px;
-    }
-
-    transition: width 0.2s ease-out, color 0.2s ease-out;
+    color: var(--primary);
   }
 `;
