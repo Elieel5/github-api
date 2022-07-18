@@ -1,41 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import { 
-  Container, 
-  Main, 
-  LeftSide, 
-  RightSide, 
-  Repos, 
-  RepoIcon, 
-  Tab 
-} from './styles';
+import {
+  Container,
+  Main,
+  LeftSide,
+  RightSide,
+  Repos,
+  RepoIcon,
+  Tab,
+} from "./styles";
 
-import ProfileData from '../../Components/ProfileData';
-import RepoCard from '../../Components/RapoCard';
+import ProfileData from "../../Components/ProfileData";
+import RepoCard from "../../Components/RapoCard";
 
-import { APIRepo, APIUser } from '../../@types';
+import { APIRepo, APIUser } from "../../@types";
 
-interface Data{
+interface Data {
   user?: APIUser;
   repos?: APIRepo[];
   error?: string;
 }
 
-const Profile: React.FC = () => {
-  const { username = '' } = useParams();
-  const [ data, setData ] = useState<Data>();
+const Profile = () => {
+  const { username = "" } = useParams();
+  const [data, setData] = useState<Data>();
 
   useEffect(() => {
     Promise.all([
       fetch(`https://api.github.com/users/${username}`),
       fetch(`https://api.github.com/users/${username}/repos`),
-
-    ]).then(async responses => {
+    ]).then(async (responses) => {
       const [userResponse, reposResponse] = responses;
 
-      if (userResponse.status === 404){
-        setData({ error: 'Busque por um Usuario/Org valido'})
+      if (userResponse.status === 404) {
+        setData({ error: "Busque por um Usuario/Org valido" });
         return;
       }
 
@@ -49,23 +48,22 @@ const Profile: React.FC = () => {
     });
   }, [username]);
 
-
-  if (data?.error){
-    return <h1>{data.error}</h1>
+  if (data?.error) {
+    return <h1>{data.error}</h1>;
   }
 
-  if (!data?.user || !data?.repos){
-    return <h1>Loading...</h1>
+  if (!data?.user || !data?.repos) {
+    return <h1>Loading...</h1>;
   }
 
   const TabContent = () => (
     <div className="content">
-      <RepoIcon/>
+      <RepoIcon />
 
       <span className="label">Repositorios</span>
       <span className="number">{data.user?.public_repos}</span>
     </div>
-  )
+  );
   return (
     <Container>
       <Tab className="desktop">
@@ -74,7 +72,7 @@ const Profile: React.FC = () => {
           <TabContent />
         </div>
 
-        <span className="line"/>
+        <span className="line" />
       </Tab>
       <Main>
         <LeftSide>
@@ -94,14 +92,14 @@ const Profile: React.FC = () => {
 
         <RightSide>
           <Tab className="mobile">
-            <TabContent/>
-            <span className="line"/>
+            <TabContent />
+            <span className="line" />
           </Tab>
           <Repos>
             <h2>Random repos</h2>
 
             <div>
-              {data.repos.map( item => (
+              {data.repos.map((item) => (
                 <RepoCard
                   key={item.name}
                   username={item.owner.login}
@@ -118,6 +116,6 @@ const Profile: React.FC = () => {
       </Main>
     </Container>
   );
-}
+};
 
 export default Profile;

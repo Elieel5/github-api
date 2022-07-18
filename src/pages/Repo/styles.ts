@@ -1,73 +1,77 @@
-import styled, { css } from 'styled-components';
-import { RiBookMarkLine, RiStarLine } from 'react-icons/ri'
-import { AiOutlineFork } from 'react-icons/ai'
-import { FaGithub } from 'react-icons/fa'
-
+import styled, { css } from "styled-components";
+import { RiBookMarkLine, RiStarLine } from "react-icons/ri";
+import { AiOutlineFork } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
 
 export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 
-    > p {
-        font-size: 16px;
-    }
+  > p {
+    font-size: 16px;
+  }
 `;
 
+const iconCSS = css`
+  width: 16px;
+  height: 16px;
+  fill: var(--icon);
+  flex-shrink: 0;
+`;
 
-const iconCSS = css `
-    width: 16px;
-    height: 16px;
-    fill: var(--icon);
-    flex-shrink: 0;
-
-`
-
-export const RepoIcon = styled(RiBookMarkLine)`${iconCSS}`;
+export const RepoIcon = styled(RiBookMarkLine)`
+  ${iconCSS}
+`;
 
 export const Stats = styled.ul`
-    margin-top: 16px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+
+  > li {
     display: flex;
     align-items: center;
+    margin-right: 9px;
 
-    > li{
-        display: flex;
-        align-items: center;
-        margin-right: 9px;
-
-        > * {
-            margin-right: 7px;
-            color: var(--gray);
-        }
+    > * {
+      margin-right: 7px;
+      color: var(--gray);
     }
+  }
 `;
 
-export const StarIcon = styled(RiStarLine)`${iconCSS}`;
+export const StarIcon = styled(RiStarLine)`
+  ${iconCSS}
+`;
 
-export const ForkIcon = styled(AiOutlineFork)`${iconCSS}`;
+export const ForkIcon = styled(AiOutlineFork)`
+  ${iconCSS}
+`;
 
 export const LinkButton = styled.a`
-    text-decoration: none;
+  text-decoration: none;
 
-    margin-top: 24px;
-    background: var(--gray-dark);
-    padding: 12px 17px;
-    border-radius: 24px;
-    width: max-content;
+  margin-top: 24px;
+  background: var(--gray-dark);
+  padding: 12px 17px;
+  border-radius: 24px;
+  width: max-content;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    > span{
-        color: var(--primary);
-    }
+  > span {
+    color: var(--primary);
+  }
 
-    > svg{
-        fill: var(--primary);
-        margin-right: 10px;
-        margin-top: -3px;
-    }
-
+  > svg {
+    fill: var(--primary);
+    margin-right: 10px;
+    margin-top: -3px;
+  }
 `;
 
-export const GithubIcon = styled(FaGithub)`${iconCSS}`;
+export const GithubIcon = styled(FaGithub)`
+  ${iconCSS}
+`;

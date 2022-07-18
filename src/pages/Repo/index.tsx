@@ -1,19 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { Container,
-         LinkButton,
-         GithubIcon,
-       } from './styles';
+import { Container, LinkButton, GithubIcon } from "./styles";
 
-const Repo: React.FC = () => {
+const Repo = () => {
   return (
     <Container>
-      <LinkButton href={'https://github.com/Elieel5'}>
-        <GithubIcon/>
+      <LinkButton href={"https://github.com/Elieel5"}>
+        <GithubIcon />
         <span>View on GitHub</span>
       </LinkButton>
     </Container>
   );
-}
+};
 
 export default Repo;

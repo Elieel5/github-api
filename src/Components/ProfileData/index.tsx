@@ -1,99 +1,99 @@
-import React from 'react';
+import React from "react";
 
-import { Container, 
-         Flex,
-         Avatar,
-         Row,
-         PeopleIcon,
-         Column,
-         CompanyIcon,
-         LocationIcon,
-         EmailIcon,
-         BlogIcon, 
-        } 
-    from './styles';
+import {
+  Container,
+  Flex,
+  Avatar,
+  Row,
+  PeopleIcon,
+  Column,
+  CompanyIcon,
+  LocationIcon,
+  EmailIcon,
+  BlogIcon,
+} from "./styles";
 
-interface Props{
-    username: string;
-    name: string;
-    avatarUrl: string;
-    followers?: number;
-    following?: number;
-    company?: string;
-    location?: string;
-    email?: string;
-    blog?: string;
-    bio?: string;
+interface Props {
+  username: string;
+  name: string;
+  avatarUrl: string;
+  followers?: number;
+  following?: number;
+  company?: string;
+  location?: string;
+  email?: string;
+  blog?: string;
+  bio?: string;
 }
 
-const ProfileData: React.FC<Props> = ({
-    username,
-    name,
-    avatarUrl,
-    followers,
-    following,
-    company,
-    location,
-    email,
-    blog,
-    bio,
-}) => {
+const ProfileData = ({
+  username,
+  name,
+  avatarUrl,
+  followers,
+  following,
+  company,
+  location,
+  email,
+  blog,
+  bio,
+}: Props) => {
   return (
-      <Container>
-          <Flex>
-              <Avatar src={avatarUrl} alt={username}/>
-              <div>
-                  <h1>{name}</h1>
-                  <h2>{username}</h2>
-              </div>
-          </Flex>
+    <Container>
+      <Flex>
+        <Avatar src={avatarUrl} alt={username} />
+        <div>
+          <h1>{name}</h1>
+          <h2>{username}</h2>
+        </div>
+      </Flex>
 
-          <Row>
-              <li>
-                  <PeopleIcon/>
-                  <b>{followers}</b>
-                  <span>followers</span>
-                  <span>·</span>
-              </li>
-              <li>
-                <b>{following}</b>
-                <span>following</span>
-              </li>
-          </Row>
+      <Row>
+        <li>
+          <PeopleIcon />
+          <b>{followers}</b>
+          <span>followers</span>
+          <span>·</span>
+        </li>
+        <li>
+          <b>{following}</b>
+          <span>following</span>
+        </li>
+      </Row>
 
-          <Column>
-            {company && (
-                <li>
-                    <CompanyIcon/>
-                    <span>{company}</span>
-                </li>
-            )}
-             {bio && (
-                <li>
-                    <span>{bio}</span>
-                </li>
-            )}
-             {location && (
-                <li>
-                    <LocationIcon/>
-                    <span>{location}</span>
-                </li>
-            )}
-             {email && (
-                <li>
-                    <EmailIcon/>
-                    <span>{email}</span>
-                </li>
-            )}
-             {blog && (
-                <li>
-                    <BlogIcon/>
-                    <span>{blog}</span>
-                </li>
-            )}
-          </Column>
-      </Container>
+      <Column>
+        {company && (
+          <li>
+            <CompanyIcon />
+            <span>{company}</span>
+          </li>
+        )}
+        {bio && (
+          <li>
+            <span>{bio}</span>
+          </li>
+        )}
+        {location && (
+          <li>
+            <LocationIcon />
+            <span>{location}</span>
+          </li>
+        )}
+        {email && (
+          <li>
+            <EmailIcon />
+            <span>{email}</span>
+          </li>
+        )}
+        {blog && (
+          <li>
+            <BlogIcon />
+            <span>{blog}</span>
+          </li>
+        )}
+      </Column>
+    </Container>
   );
-}
+};
 
 export default ProfileData;

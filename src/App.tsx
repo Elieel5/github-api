@@ -1,27 +1,26 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Footer from './Components/Footer';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Header from './Components/Header';
-import Profile from './pages/Profile';
-import Repo from './pages/Repo';
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import Profile from "./pages/Profile";
+import Repo from "./pages/Repo";
 
-import GlobalStyles from './styles/GlobalStyles';
-
+import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
+      <Header />
 
       <Routes>
-        <Route path="/" element={ <Profile/> }/>
-        <Route path="/:username" element={ <Profile/> }/>
-        <Route path="/:username/:reponame" element={ <Repo/>}/>
+        <Route path="/" element={<Profile />} />
+        <Route path="/:username" element={<Profile />} />
+        <Route path="/:username/:reponame" element={<Repo />} />
       </Routes>
 
-      <Footer/>
-      <GlobalStyles/>
+      <Footer />
+      <GlobalStyles />
     </BrowserRouter>
   );
 }

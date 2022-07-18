@@ -1,13 +1,13 @@
-import React from 'react';
-import { Container, Line, GithubLogo } from './styles';
+import React from "react";
+import { Container, Line, GithubLogo } from "./styles";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
-      <Container>
-          <Line/>
-          <GithubLogo/>
-      </Container>
+    <Container>
+      <Line />
+      <GithubLogo />
+    </Container>
   );
-}
+};
 
 export default Footer;

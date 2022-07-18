@@ -1,14 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Container,
-         Topside,
-         RepoIcon,
-         Botside,
-         StarIcon,
-         ForkIcon,
-       } 
-from './styles';
+import {
+  Container,
+  Topside,
+  RepoIcon,
+  Botside,
+  StarIcon,
+  ForkIcon,
+} from "./styles";
 
 interface Props {
   username: string;
@@ -19,28 +19,24 @@ interface Props {
   forks: number;
 }
 
-const RapoCard: React.FC<Props> = ({
+const RapoCard = ({
   username,
   reponame,
   description,
   language,
   stars,
   forks,
-  
-}) => {
-  const languageClass = language ? language.toLocaleLowerCase() : 'other';
-
+}: Props) => {
+  const languageClass = language ? language.toLocaleLowerCase() : "other";
 
   return (
     <Container>
       <Topside>
         <header>
-          <RepoIcon/>
+          <RepoIcon />
           <Link to={`/${username}/${reponame}`}>{reponame}</Link>
         </header>
-        <p>
-
-        </p>
+        <p></p>
       </Topside>
 
       <Botside>
@@ -61,6 +57,6 @@ const RapoCard: React.FC<Props> = ({
       </Botside>
     </Container>
   );
-}
+};
 
 export default RapoCard;
